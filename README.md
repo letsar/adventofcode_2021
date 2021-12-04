@@ -1,1 +1,1 @@
-# adventofcode_2021
+A simple command-line application.
