@@ -1,40 +1,4 @@
-void main(List<String> arguments) {
-  print(puzzle0202(input.split('\n')));
-}
-
-int puzzle0202(List<String> input) {
-  int position = 0;
-  int depth = 0;
-  int aim = 0;
-  for (final command in input) {
-    final parts = command.split(' ');
-    final direction = parts[0][0];
-    final distance = int.parse(parts[1]);
-    switch (direction) {
-      case 'f':
-        position += distance;
-        depth += aim * distance;
-        break;
-      case 'd':
-        aim += distance;
-        break;
-      case 'u':
-        aim -= distance;
-        break;
-      default:
-    }
-  }
-  return position * depth;
-}
-
-const defaultInput = '''forward 5
-down 5
-forward 8
-up 3
-down 8
-forward 2''';
-
-const input = '''forward 3
+forward 3
 down 7
 forward 8
 down 9
@@ -1033,4 +997,4 @@ down 9
 down 2
 down 6
 down 9
-forward 8''';
+forward 8

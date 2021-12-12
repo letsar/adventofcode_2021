@@ -1,76 +1,4 @@
-void main(List<String> arguments) {
-  final list = input.split('\n');
-  final length = list.first.length;
-  print(
-    puzzle0302(
-      list.map((e) => int.parse(e, radix: 2)).toList(),
-      length,
-    ),
-  );
-}
-
-int puzzle0302(List<int> input, int bitsLength) {
-  List<int> inputCopy = input.toList();
-  int oxygenGeneratorRating = 0;
-  for (int i = bitsLength - 1; i >= 0 && inputCopy.length > 1; i--) {
-    final half = (inputCopy.length / 2).ceil();
-    final test = 1 << i;
-    int oneCount = 0;
-    for (int j = 0; j < inputCopy.length; j++) {
-      final bits = inputCopy[j];
-      if (bits & test != 0) {
-        oneCount++;
-      }
-    }
-
-    // Keep only those which start with the most common.
-    if (oneCount >= half) {
-      inputCopy.retainWhere((x) => x & test != 0);
-    } else {
-      inputCopy.retainWhere((x) => x & test == 0);
-    }
-  }
-  oxygenGeneratorRating = inputCopy.first;
-
-  inputCopy = input.toList();
-  int co2ScrubberRating = 0;
-  for (int i = bitsLength - 1; i >= 0 && inputCopy.length > 1; i--) {
-    final half = (inputCopy.length / 2).ceil();
-    final test = 1 << i;
-    int oneCount = 0;
-    for (int j = 0; j < inputCopy.length; j++) {
-      final bits = inputCopy[j];
-      if (bits & test != 0) {
-        oneCount++;
-      }
-    }
-
-    // Keep only those which start with the most common.
-    if (oneCount >= half) {
-      inputCopy.retainWhere((x) => x & test == 0);
-    } else {
-      inputCopy.retainWhere((x) => x & test != 0);
-    }
-  }
-  co2ScrubberRating = inputCopy.first;
-
-  return oxygenGeneratorRating * co2ScrubberRating;
-}
-
-const defaultInput = '''00100
-11110
-10110
-10111
-10101
-01111
-00111
-11100
-10000
-11001
-00010
-01010''';
-
-const input = '''010100110111
+010100110111
 101001010000
 101011110010
 100100011101
@@ -1069,4 +997,4 @@ const input = '''010100110111
 001100110011
 010010011101
 100011110000
-110011110111''';
+110011110111

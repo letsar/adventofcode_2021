@@ -1,39 +1,4 @@
-void main(List<String> arguments) {
-  print(puzzle0101(input.toListInt()));
-}
-
-int puzzle0101(List<int> input) {
-  int largerMeasurements = 0;
-  if (input.length < 2) {
-    return 0;
-  }
-
-  for (int i = 1; i < input.length; i++) {
-    if (input[i] > input[i - 1]) {
-      largerMeasurements++;
-    }
-  }
-  return largerMeasurements;
-}
-
-extension StringExtensions on String {
-  List<int> toListInt() {
-    return split('\n').map((e) => int.parse(e)).toList();
-  }
-}
-
-const defaultInput = '''199
-200
-208
-210
-200
-207
-240
-269
-260
-263''';
-
-const input = '''170
+170
 176
 179
 180
@@ -2032,4 +1997,4 @@ const input = '''170
 7165
 7181
 7179
-7181''';
+7181
